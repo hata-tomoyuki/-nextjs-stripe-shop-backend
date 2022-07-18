@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "furnitures",
+  "collectionName": "items",
   "info": {
-    "name": "furniture",
-    "description": ""
+    "name": "Item"
   },
   "options": {
     "increments": true,
@@ -14,8 +13,11 @@
     "name": {
       "type": "string"
     },
+    "description": {
+      "type": "text"
+    },
     "image": {
-      "collection": "file",
+      "model": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -25,12 +27,12 @@
       "plugin": "upload",
       "required": false
     },
-    "description": {
-      "type": "richtext"
+    "price": {
+      "type": "integer"
     },
-    "items": {
-      "via": "furniture",
-      "collection": "item"
+    "furniture": {
+      "model": "furniture",
+      "via": "items"
     }
   }
 }
